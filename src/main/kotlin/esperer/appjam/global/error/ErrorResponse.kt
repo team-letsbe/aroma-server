@@ -1,5 +1,6 @@
 package esperer.appjam.global.error
 
 data class ErrorResponse(
-    val errorCode: ErrorCode
+    val message: String,
+    val status: Int
 )

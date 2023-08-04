@@ -12,7 +12,7 @@ class ErrorHandler {
     @ExceptionHandler(GlobalException::class)
     fun handleGlobalException(e: GlobalException): ResponseEntity<ErrorResponse> {
         return ResponseEntity(
-            ErrorResponse(e.code),
+            ErrorResponse(e.code.message, e.code.status),
             HttpStatus.valueOf(e.code.status)
         )
     }
