@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import esperer.appjam.global.error.ErrorCode
 import esperer.appjam.global.error.ErrorResponse
 import esperer.appjam.global.error.exception.GlobalException
+import io.jsonwebtoken.ExpiredJwtException
+import io.jsonwebtoken.JwtException
 import org.springframework.web.filter.OncePerRequestFilter
 import javax.servlet.FilterChain
 import javax.servlet.http.HttpServletRequest
@@ -20,8 +22,8 @@ class ExceptionFilter : OncePerRequestFilter() {
             filterChain.doFilter(request, response)
         }.onFailure { e ->
             when(e) {
-                // is ExpiredJwtException -> exceptionToResponse(ErrorCode.EXPIRED_ACCESS_TOKEN, response)
-                // is JwtException -> exceptionToResponse(ErrorCode.INVALID_TOKEN, response)
+                is ExpiredJwtException -> exceptionToResponse(ErrorCode.EXPIRED_TOKEN, response)
+                is JwtException -> exceptionToResponse(ErrorCode.INVALID_TOKEN, response)
                 is GlobalException -> exceptionToResponse(e.code, response)
             }
         }
