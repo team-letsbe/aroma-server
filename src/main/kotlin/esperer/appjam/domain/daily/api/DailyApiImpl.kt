@@ -9,6 +9,7 @@ import esperer.appjam.domain.daily.vo.DailyCreatedAtRequest
 import esperer.appjam.domain.daily.vo.DailyResponse
 import esperer.appjam.global.util.UserUtil
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 import java.time.LocalDateTime
 import java.util.*
 
@@ -19,6 +20,7 @@ class DailyApiImpl(
 ) : DailyApi {
 
 
+    @Transactional
     override fun createDaily(request: CreateDailyRequest) {
 
         val now = LocalDateTime.now()
