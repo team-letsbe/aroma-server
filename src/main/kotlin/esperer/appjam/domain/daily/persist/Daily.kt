@@ -2,6 +2,7 @@ package esperer.appjam.domain.daily.persist
 
 import esperer.appjam.domain.daily.constant.Emotion
 import esperer.appjam.domain.user.persist.User
+import org.hibernate.annotations.GenericGenerator
 import java.time.LocalDateTime
 import java.util.UUID
 import javax.persistence.*
@@ -10,11 +11,12 @@ import javax.persistence.*
 class Daily(
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    @Column(columnDefinition = "BINARY(16)", nullable = false)
     val id: UUID,
 
-    @Column(columnDefinition = "VARCHAR(255)", nullable = false)
+    @Column(nullable = false)
     val content: String,
 
     @Column(nullable = false, updatable = false, columnDefinition = "DATETIME(6)")

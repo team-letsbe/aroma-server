@@ -1,18 +1,21 @@
 package esperer.appjam.domain.user.persist
 
 import esperer.appjam.domain.user.constant.UserRole
+import org.hibernate.annotations.GenericGenerator
 import java.util.UUID
 import javax.persistence.*
 
 @Entity
+@Table(name = "tbl_user")
 class User(
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    @Column(columnDefinition = "BINARY(16)", nullable = false)
     val id: UUID,
 
-    @Column(columnDefinition = "VARCHAR(10)", nullable = false)
+    @Column(nullable = false)
     val name: String,
 
     @Column(nullable = false)

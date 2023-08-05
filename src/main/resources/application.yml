@@ -32,3 +32,5 @@ jwt:
   refreshSecret: ${REFRESH_SECRET:poiuytrewqlkjhgfdsamnbvcxz12345678901234567890}
   accessExp: ${ACCESS_EXP:18000000000000}
   refreshExp: ${REFRESH_EXP:720000000000000}
+server:
+  port: 9090

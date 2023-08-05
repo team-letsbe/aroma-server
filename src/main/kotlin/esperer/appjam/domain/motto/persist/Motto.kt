@@ -1,5 +1,6 @@
 package esperer.appjam.domain.motto.persist
 
+import org.hibernate.annotations.GenericGenerator
 import java.util.*
 import javax.persistence.Column
 import javax.persistence.Entity
@@ -11,14 +12,15 @@ import javax.persistence.Id
 class Motto(
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    @Column(columnDefinition = "BINARY(16)", nullable = false)
     val id: UUID,
 
-    @Column(columnDefinition = "VARCHAR(254)", nullable = false)
+    @Column(nullable = false)
     val content: String,
 
-    @Column(columnDefinition = "VARCHAR(50)", nullable = false)
+    @Column(nullable = false)
     val createdBy: String
 ) {
 }
