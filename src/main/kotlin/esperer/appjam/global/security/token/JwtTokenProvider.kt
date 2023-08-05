@@ -1,6 +1,5 @@
 package esperer.appjam.global.security.token
 
-import esperer.appjam.domain.user.persist.UserJpaRepository
 import esperer.appjam.global.security.auth.AuthDetailsService
 import esperer.appjam.global.security.exception.ExpiredTokenException
 import esperer.appjam.global.security.exception.InvalidTokenException

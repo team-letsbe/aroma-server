@@ -6,7 +6,6 @@ import java.util.UUID
 import javax.persistence.*
 
 @Entity
-@Table(name = "tbl_user")
 class User(
 
     @Id

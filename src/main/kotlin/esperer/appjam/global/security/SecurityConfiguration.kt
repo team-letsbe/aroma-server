@@ -32,6 +32,7 @@ class SecurityConfiguration(
             .requestMatchers(RequestMatcher { request ->
                 CorsUtils.isPreFlightRequest(request)
             }).permitAll()
+            .antMatchers("/**").permitAll()
             .anyRequest().permitAll()
 
             .and()
