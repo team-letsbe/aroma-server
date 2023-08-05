@@ -7,4 +7,5 @@ import esperer.appjam.domain.daily.vo.DailyResponse
 interface DailyApi {
     fun createDaily(request: CreateDailyRequest)
     fun getDailyByCreatedAt(request: DailyCreatedAtRequest): DailyResponse
+    fun getAllDailies(): List<DailyResponse>
 }

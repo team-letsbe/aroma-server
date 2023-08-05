@@ -30,4 +30,10 @@ class DailyController(
         return ResponseEntity.ok(response)
     }
 
+    @GetMapping("/all")
+    fun getAllDailies(): ResponseEntity<List<DailyResponse>> {
+        val responses = dailyApi.getAllDailies()
+        return ResponseEntity.ok(responses)
+    }
+
 }

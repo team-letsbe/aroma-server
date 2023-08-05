@@ -48,4 +48,15 @@ class DailyApiImpl(
         )
     }
 
+    override fun getAllDailies(): List<DailyResponse> {
+        val dailies = dailyRepository.findAll()
+        return dailies.map {
+            DailyResponse(
+                content = it.content,
+                emotion = it.emotion,
+                createdAt = it.createdAt
+            )
+        }
+    }
+
 }
