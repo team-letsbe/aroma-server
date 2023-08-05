@@ -18,7 +18,6 @@ class MottoApiImpl(
     override fun createMotto(request: CreateMottoRequest) {
         mottoRepository.save(
             Motto(
-                id = UUID.randomUUID(),
                 content = request.content,
                 createdBy = request.createdBy
             )

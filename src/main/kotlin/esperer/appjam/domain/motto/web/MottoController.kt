@@ -17,13 +17,13 @@ class MottoController(
     private val mottoApi: MottoApi
 ) {
 
-    @PostMapping
+    @PostMapping("/")
     fun createMotto(@RequestBody request: CreateMottoRequest): ResponseEntity<String> {
         mottoApi.createMotto(request)
         return ResponseEntity.status(HttpStatus.CREATED).body("motto 등록 성공")
     }
 
-    @GetMapping
+    @GetMapping("/random")
     fun getRandomMotto(): ResponseEntity<MottoResponse> {
         val response = mottoApi.getRandomMotto()
         return ResponseEntity.ok(response)
