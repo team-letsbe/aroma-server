@@ -19,9 +19,9 @@ class DailyController(
 ) {
 
     @PostMapping
-    fun createDaily(@RequestBody request: CreateDailyRequest): ResponseEntity<Void> {
+    fun createDaily(@RequestBody request: CreateDailyRequest): ResponseEntity<String> {
         dailyApi.createDaily(request)
-        return ResponseEntity.status(HttpStatus.CREATED).build()
+        return ResponseEntity.status(HttpStatus.CREATED).body("데일리 등록 성공")
     }
 
     @GetMapping

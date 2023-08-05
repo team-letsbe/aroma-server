@@ -23,9 +23,9 @@ class AuthController(
     }
 
     @PostMapping("/save")
-    fun saveUser(@RequestBody request: LoginRequest): ResponseEntity<Void> {
+    fun saveUser(@RequestBody request: LoginRequest): ResponseEntity<String> {
         authApi.saveUser(request.name)
-        return ResponseEntity.status(HttpStatus.CREATED).build()
+        return ResponseEntity.status(HttpStatus.CREATED).body("유저 저장 성공")
     }
 
 }

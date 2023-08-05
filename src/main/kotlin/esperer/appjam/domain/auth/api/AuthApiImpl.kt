@@ -8,9 +8,11 @@ import esperer.appjam.domain.user.persist.User
 import esperer.appjam.domain.user.persist.UserJpaRepository
 import esperer.appjam.global.security.token.JwtTokenProvider
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 import java.util.*
 
 @Service
+@Transactional
 class AuthApiImpl(
     private val userRepository: UserJpaRepository,
     private val jwtTokenProvider: JwtTokenProvider
