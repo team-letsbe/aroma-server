@@ -1,5 +1,6 @@
 package esperer.appjam.global.security.token
 
+import esperer.appjam.domain.user.persist.UserJpaRepository
 import esperer.appjam.global.security.auth.AuthDetailsService
 import esperer.appjam.global.security.exception.ExpiredTokenException
 import esperer.appjam.global.security.exception.InvalidTokenException
@@ -11,6 +12,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication
 import org.springframework.stereotype.Component
 import java.security.Key
+import java.time.LocalDateTime
 import java.time.ZonedDateTime
 import java.util.*
 import javax.servlet.http.HttpServletRequest
@@ -27,8 +29,8 @@ class JwtTokenProvider(
         const val TOKEN_PREFIX = "Bearer "
     }
 
-    val accessExpiredTime: ZonedDateTime
-        get() = ZonedDateTime.now().plusSeconds(jwtProperties.accessExp)
+    val accessExpiredTime: LocalDateTime
+        get() = LocalDateTime.now().plusSeconds(jwtProperties.accessExp)
 
     fun generateAccessToken(id: UUID): String =
         generateToken(id.toString(), ACCESS_TYPE, jwtProperties.accessSecret, jwtProperties.accessExp)
