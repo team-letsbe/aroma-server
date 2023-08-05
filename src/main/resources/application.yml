@@ -30,5 +30,5 @@ spring:
 jwt:
   accessSecret: ${ACCESS_SECRET:qwertyuiopasdfghjklzxcvbnm12345678901234567890}
   refreshSecret: ${REFRESH_SECRET:poiuytrewqlkjhgfdsamnbvcxz12345678901234567890}
-  accessExp: ${ACCESS_EXP:1800}
-  refreshExp: ${REFRESH_EXP:7200}
+  accessExp: ${ACCESS_EXP:18000000000000}
+  refreshExp: ${REFRESH_EXP:720000000000000}
