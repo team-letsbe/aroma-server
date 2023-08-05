@@ -6,4 +6,5 @@ import java.util.UUID
 
 interface DailyJpaRepository : CrudRepository<Daily, UUID> {
     fun findByCreatedAt(createdAt: LocalDateTime): Daily?
+    fun existsByCreatedAt(createdBy: LocalDateTime): Boolean
 }
